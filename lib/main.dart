@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:swarp/navigations/bottom.dart';
 import 'package:swarp/screens/barternow/barternow.dart';
+import 'package:swarp/screens/delivery/delivery.dart';
 import 'package:swarp/screens/details/details.dart';
 import 'package:swarp/screens/getstarted/getstarted.dart';
 import 'package:swarp/screens/login/login.dart';
@@ -35,7 +36,7 @@ class MyApp extends StatelessWidget {
               backgroundColor: Colors.transparent,
               elevation: 0,
               iconTheme: IconThemeData(color: Colors.black))),
-      home: BarterNow(),
+      home: Delivery(),
     );
   }
 }
