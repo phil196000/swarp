@@ -17,22 +17,24 @@ class CustomTextInput extends StatelessWidget {
   final double height;
   final Function(String)? onChanged;
   final bool autofocus;
+  final int maxlines;
 
   CustomTextInput(
-      { this.controller,
-        required this.hint,
-        this.prefixIcon,
-        this.height = 65,
-        this.autofocus = false,
-        this.onChanged,
-        this.obscureText = false,
-        this.error,
-        this.inputFormatters,
-        this.filledColor = Colors.white,
-        this.keyboardType = TextInputType.text,
-        this.suffixIcon,
-        this.margin = EdgeInsets.zero,
-        this.enabled = true});
+      {this.controller,
+      required this.hint,
+      this.prefixIcon,
+      this.maxlines = 1,
+      this.height = 65,
+      this.autofocus = false,
+      this.onChanged,
+      this.obscureText = false,
+      this.error,
+      this.inputFormatters,
+      this.filledColor = Colors.white,
+      this.keyboardType = TextInputType.text,
+      this.suffixIcon,
+      this.margin = EdgeInsets.zero,
+      this.enabled = true});
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +43,7 @@ class CustomTextInput extends StatelessWidget {
       margin: margin,
       alignment: Alignment.center,
       child: TextFormField(
+        maxLines: maxlines,
         autofocus: autofocus,
         onChanged: onChanged,
         controller: controller,
@@ -56,8 +59,8 @@ class CustomTextInput extends StatelessWidget {
             suffixIcon: suffixIcon,
             errorText: error != null
                 ? error!.visible
-                ? error!.message
-                : null
+                    ? error!.message
+                    : null
                 : null,
             fillColor: filledColor,
             filled: true,
@@ -73,7 +76,7 @@ class CustomTextInput extends StatelessWidget {
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
                 borderSide:
-                const BorderSide(color: AppColors.secondary, width: 2)),
+                    const BorderSide(color: AppColors.secondary, width: 2)),
             enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
                 borderSide: const BorderSide(
@@ -83,7 +86,7 @@ class CustomTextInput extends StatelessWidget {
             disabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
                 borderSide:
-                const BorderSide(color: AppColors.secondary, width: 2))),
+                    const BorderSide(color: AppColors.secondary, width: 2))),
       ),
     );
   }
