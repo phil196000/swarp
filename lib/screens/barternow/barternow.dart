@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:swarp/customised_widgets/buttons/outline_button.dart';
 import 'package:swarp/customised_widgets/texts/blacktext.dart';
 import 'package:swarp/theme/colors.dart';
 
@@ -25,12 +26,12 @@ class _BarterNowState extends State<BarterNow> {
               children: [
                 IconButton(
                   onPressed: () {},
-                  icon: Icon(Icons.chevron_left),
+                  icon: const Icon(Icons.chevron_left),
                 ),
-                BlackText(text: 'Barter Now'),
+                const BlackText(text: 'Barter Now'),
               ],
             ),
-            BlackText(
+            const BlackText(
               margin: EdgeInsets.only(top: 0, left: 50),
               text: "Here's how it works",
               color: Colors.black38,
@@ -44,9 +45,9 @@ class _BarterNowState extends State<BarterNow> {
         child: Column(
           children: [
             Container(
-              margin: EdgeInsets.only(top: 40, bottom: 40),
+              margin: const EdgeInsets.only(top: 40, bottom: 40),
               child: RichText(
-                  text: TextSpan(
+                  text: const TextSpan(
                       text: '01',
                       style: TextStyle(
                           color: AppColors.primary,
@@ -60,6 +61,184 @@ class _BarterNowState extends State<BarterNow> {
                             fontSize: 16,
                             fontStyle: FontStyle.normal))
                   ])),
+            ),
+            const BlackText(text: 'Items for Exchange:'),
+            Container(
+              margin: const EdgeInsets.only(top: 20, bottom: 15),
+              padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 30),
+              decoration: BoxDecoration(
+                  color: AppColors.secondary,
+                  borderRadius: BorderRadius.circular(10)),
+              child: Row(
+                children: [
+                  Image.asset(
+                    'lib/assets/products/chair.png',
+                    colorBlendMode: BlendMode.color,
+                  ),
+                  const SizedBox(
+                    width: 70,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const BlackText(
+                        text: 'West Stool',
+                        color: Colors.white,
+                        weight: FontWeight.w500,
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Row(
+                        children: [
+                          const CircleAvatar(),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const BlackText(
+                                text: '@TOLUwhyte',
+                                size: 16,
+                                weight: FontWeight.normal,
+                                color: Colors.white,
+                              ),
+                              Row(
+                                children: const [
+                                  Icon(
+                                    Icons.location_on_rounded,
+                                    color: Colors.red,
+                                    size: 15,
+                                  ),
+                                  BlackText(
+                                    color: Colors.white,
+                                    size: 16,
+                                    text: 'Ikorodu',
+                                    weight: FontWeight.normal,
+                                  )
+                                ],
+                              ),
+                            ],
+                          )
+                        ],
+                      )
+                    ],
+                  )
+                ],
+              ),
+            ),
+            Container(
+              child: CircleAvatar(
+                backgroundColor: AppColors.primary,
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.only(top: 15, bottom: 10),
+              padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 30),
+              decoration: BoxDecoration(
+                  color: AppColors.secondary,
+                  borderRadius: BorderRadius.circular(10)),
+              child: Row(
+                children: [
+                  Image.asset(
+                    'lib/assets/products/chair.png',
+                    colorBlendMode: BlendMode.color,
+                  ),
+                  const SizedBox(
+                    width: 70,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const BlackText(
+                        text: 'Rest Pillow',
+                        color: Colors.white,
+                        weight: FontWeight.w500,
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Row(
+                        children: [
+                          const CircleAvatar(),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const BlackText(
+                                text: 'You',
+                                size: 16,
+                                weight: FontWeight.normal,
+                                color: Colors.white,
+                              ),
+                              Row(
+                                children: const [
+                                  Icon(
+                                    Icons.location_on_rounded,
+                                    color: Colors.red,
+                                    size: 15,
+                                  ),
+                                  BlackText(
+                                    color: Colors.white,
+                                    size: 16,
+                                    text: 'Ikeja',
+                                    weight: FontWeight.normal,
+                                  )
+                                ],
+                              ),
+                            ],
+                          )
+                        ],
+                      )
+                    ],
+                  )
+                ],
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.only(top: 40, bottom: 40),
+              child: RichText(
+                  text: const TextSpan(
+                      text: '02 ',
+                      style: TextStyle(
+                          color: AppColors.primary,
+                          fontSize: 20,
+                          fontStyle: FontStyle.italic),
+                      children: [
+                    TextSpan(
+                        text: 'Choose your best delivery method',
+                        style: TextStyle(
+                            color: AppColors.secondary,
+                            fontSize: 16,
+                            fontStyle: FontStyle.normal))
+                  ])),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 25),
+              child: Row(
+                children: [
+                  Expanded(
+                    flex: 7,
+                    child: CustomOutlinedButton(
+                      text: 'Delivery',
+                      padding: const EdgeInsets.symmetric(vertical: 15),
+                      onPressed: () {},
+                    ),
+                  ),
+                  Spacer(),
+                  Expanded(
+                    flex: 7,
+                    child: CustomOutlinedButton(
+                      text: 'Pickup',
+                      padding: const EdgeInsets.symmetric(vertical: 15),
+                      onPressed: () {},
+                    ),
+                  ),
+                ],
+              ),
             )
           ],
         ),
