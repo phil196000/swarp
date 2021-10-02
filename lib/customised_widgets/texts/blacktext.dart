@@ -8,11 +8,13 @@ class BlackText extends StatelessWidget {
   final Color color;
   final EdgeInsets margin;
   final TextDecoration decoration;
+  final TextAlign? textAlign;
 
   const BlackText(
       {Key? key,
       this.decoration = TextDecoration.none,
       required this.text,
+      this.textAlign,
       this.color = AppColors.secondary,
       this.weight = FontWeight.bold,
       this.size = 18,
@@ -25,6 +27,7 @@ class BlackText extends StatelessWidget {
       margin: margin,
       child: Text(
         text,
+        textAlign: textAlign,
         style: TextStyle(
             fontSize: size,
             color: color,

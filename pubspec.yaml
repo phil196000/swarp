@@ -67,6 +67,7 @@ flutter:
      - lib/assets/google.png
      - lib/assets/products/chair.png
      - lib/assets/products/chair_2.png
+     - lib/assets/chat.png
 
   #   - images/a_dot_ham.jpeg
 
