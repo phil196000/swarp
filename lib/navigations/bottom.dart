@@ -62,7 +62,7 @@ class _BottomState extends State<Bottom> {
           inactiveColorPrimary: Colors.grey,
           inactiveIcon: const Icon(
             Icons.home,
-            color: AppColors.primary,
+            color: Colors.grey,
           ),
           contentPadding: 0,
           textStyle: TextStyle(fontWeight: FontWeight.bold)),
@@ -163,9 +163,21 @@ class CustomNavBarWidget extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisSize: MainAxisSize.min,
+        // mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          Flexible(child: item.icon),
+          Flexible(
+              child: Icon(
+            item.title == 'Home'
+                ? Icons.home
+                : item.title == 'Community'
+                    ? Icons.group
+                    : item.title == 'Add'
+                        ? Icons.add_box_rounded
+                        : item.title == 'Chat'
+                            ? Icons.chat_outlined
+                            : Icons.account_circle_outlined,
+            color: isSelected ? AppColors.primary : Colors.grey,
+          )),
           Visibility(
               visible: isSelected,
               child: Container(
@@ -187,7 +199,7 @@ class CustomNavBarWidget extends StatelessWidget {
       color: AppColors.secondary,
       child: Container(
         width: double.infinity,
-        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
         height: kBottomNavigationBarHeight,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
