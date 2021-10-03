@@ -7,6 +7,7 @@ import 'package:swarp/screens/getstarted/getstarted.dart';
 import 'package:swarp/screens/login/login.dart';
 import 'package:swarp/screens/onboarding/onboarding.dart';
 import 'package:swarp/screens/profile/barterhistory/barterhistory.dart';
+import 'package:swarp/screens/profile/settings/settings.dart';
 import 'package:swarp/screens/splash/splash.dart';
 
 void main() {
@@ -37,7 +38,7 @@ class MyApp extends StatelessWidget {
               backgroundColor: Colors.transparent,
               elevation: 0,
               iconTheme: IconThemeData(color: Colors.black))),
-      home: BarterHistory(),
+      home: Settings(),
     );
   }
 }
