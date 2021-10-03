@@ -16,45 +16,48 @@ class Product extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onPressed,
-      child: Container(
-        padding: EdgeInsets.only(top: 20, bottom: 5),
-        decoration: BoxDecoration(
-            color: Colors.black12, borderRadius: BorderRadius.circular(15)),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Align(
-              child: Image.asset(
-                image,
-                height: MediaQuery.of(context).size.height * 0.2,
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 10),
+      child: GestureDetector(
+        onTap: onPressed,
+        child: Container(
+          padding: EdgeInsets.only(top: 20, bottom: 5),
+          decoration: BoxDecoration(
+              color: Colors.black12, borderRadius: BorderRadius.circular(15)),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Align(
+                child: Image.asset(
+                  image,
+                  height: MediaQuery.of(context).size.height * 0.16,
+                ),
               ),
-            ),
-            BlackText(
-              text: title,
-              decoration: TextDecoration.underline,
-              margin: EdgeInsets.only(top: 15, left: 20),
-            ),
-            Container(
-              margin: EdgeInsets.only(left: 20, top: 5),
-              child: Row(
-                children: [
-                  Icon(
-                    Icons.location_on_rounded,
-                    color: Colors.red,
-                    size: 15,
-                  ),
-                  BlackText(
-                    text: title,
-                    decoration: TextDecoration.underline,
-                    weight: FontWeight.normal,
-                    size: 14,
-                  )
-                ],
+              BlackText(
+                text: title,
+                decoration: TextDecoration.underline,
+                margin: EdgeInsets.only(top: 15, left: 20),
               ),
-            ),
-          ],
+              Container(
+                margin: EdgeInsets.only(left: 20, top: 5),
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.location_on_rounded,
+                      color: Colors.red,
+                      size: 15,
+                    ),
+                    BlackText(
+                      text: title,
+                      decoration: TextDecoration.underline,
+                      weight: FontWeight.normal,
+                      size: 14,
+                    )
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

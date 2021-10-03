@@ -17,7 +17,8 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return SafeArea(
+        child: Scaffold(
       appBar: AppBar(
         leading: IconButton(
           icon: const Icon(Icons.chevron_left),
@@ -48,95 +49,90 @@ class _HomeState extends State<Home> {
               ))
         ],
       ),
-      body: SafeArea(
-          child: SingleChildScrollView(
-        padding: const EdgeInsets.only(left: 15,right: 15,bottom: 70),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            CustomInput(
-              margin: const EdgeInsets.only(top: 20, bottom: 40),
-              controller: searchEditingController,
-              hint: 'Search',
-              prefixIcon: Icon(Icons.search),
-            ),
-            const BlackText(
-              text: 'Category',
-              size: 22,
-            ),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  CategoryItem(
-                    child: Icon(Icons.person),
-                    title: 'Clothes',
+      body: Padding(
+          padding: EdgeInsets.only(bottom: 70),
+          child: CustomScrollView(
+            slivers: [
+              SliverList(
+                  delegate: SliverChildListDelegate([
+                Container(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        padding: EdgeInsets.symmetric(horizontal: 20),
+                        child: CustomInput(
+                          margin: const EdgeInsets.only(top: 20, bottom: 40),
+                          controller: searchEditingController,
+                          hint: 'Search',
+                          prefixIcon: Icon(Icons.search),
+                        ),
+                      ),
+                      const BlackText(
+                        margin: EdgeInsets.only(left: 20, bottom: 30),
+                        text: 'Category',
+                        size: 22,
+                      ),
+                      SingleChildScrollView(
+                        padding: EdgeInsets.only(left: 20),
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          children: [
+                            CategoryItem(
+                              child: Icon(Icons.person),
+                              title: 'Clothes',
+                            ),
+                            CategoryItem(
+                              child: Icon(Icons.person),
+                              title: 'Clothes',
+                            ),
+                            CategoryItem(
+                              child: Icon(Icons.person),
+                              title: 'Clothes',
+                            ),
+                            CategoryItem(
+                              child: Icon(Icons.person),
+                              title: 'Clothes',
+                            ),
+                            CategoryItem(
+                              child: Icon(Icons.person),
+                              title: 'Clothes',
+                            ),
+                            CategoryItem(
+                              child: Icon(Icons.person),
+                              title: 'Clothes',
+                            )
+                          ],
+                        ),
+                      ),
+                      const BlackText(
+                        margin: EdgeInsets.only(top: 40, left: 20, bottom: 30),
+                        text: 'New Deals',
+                        size: 22,
+                      ),
+                    ],
                   ),
-                  CategoryItem(
-                    child: Icon(Icons.person),
-                    title: 'Clothes',
-                  ),
-                  CategoryItem(
-                    child: Icon(Icons.person),
-                    title: 'Clothes',
-                  ),
-                  CategoryItem(
-                    child: Icon(Icons.person),
-                    title: 'Clothes',
-                  ),
-                  CategoryItem(
-                    child: Icon(Icons.person),
-                    title: 'Clothes',
-                  ),
-                  CategoryItem(
-                    child: Icon(Icons.person),
-                    title: 'Clothes',
-                  )
-                ],
-              ),
-            ),
-            const BlackText(
-              margin: EdgeInsets.only(top: 40),
-              text: 'New Deals',
-              size: 22,
-            ),
-            GridView.count(
-              padding: EdgeInsets.symmetric(vertical: 10),
-              shrinkWrap: true,
-              crossAxisCount: 2,
-              mainAxisSpacing: 25,
-              crossAxisSpacing: 20,
-              children: [
-                Product(
-                  title: "West Stool",
-                  location: 'Ikoyi',
-                  image: 'lib/assets/products/chair.png',
+                )
+              ])),
+              SliverGrid(
+                gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                  maxCrossAxisExtent: 200.0,
+                  mainAxisSpacing: 10.0,
+                  crossAxisSpacing: 10.0,
+                  childAspectRatio: 0.8,
                 ),
-            //     Product(
-            //       title: "West Stool",
-            //       location: 'Ikoyi',
-            //       image: 'lib/assets/products/chair.png',
-            //     ),
-            //     Product(
-            //       title: "West Stool",
-            //       location: 'Ikoyi',
-            //       image: 'lib/assets/products/chair.png',
-            //     ),
-            //     Product(
-            //       title: "West Stool",
-            //       location: 'Ikoyi',
-            //       image: 'lib/assets/products/chair.png',
-            //     ),
-            //     Product(
-            //       title: "West Stool",
-            //       location: 'Ikoyi',
-            //       image: 'lib/assets/products/chair.png',
-            //     )
-              ],
-            )
-          ],
-        ),
-      )),
-    );
+                delegate: SliverChildBuilderDelegate(
+                  (BuildContext context, int index) {
+                    return const Product(
+                        image: 'lib/assets/products/chair.png',
+                        title: "West Stool",
+                        location: 'Ikado');
+                  },
+                  childCount: 20,
+                ),
+              )
+            ],
+          )),
+    ));
   }
 }
